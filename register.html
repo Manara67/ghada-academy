@@ -144,19 +144,36 @@ document.getElementById("registerForm").addEventListener("submit", function(e){
     let name = document.getElementById("name").value;
     let phone = document.getElementById("phone").value;
     let age = document.getElementById("age").value;
+    let photoInput = document.getElementById("photo");
 
-    // رقم واتساب صاحب الأكاديمية
-    let adminNumber = "201067579526";
+    if(photoInput.files.length === 0){
+        alert("يرجى اختيار صورة!");
+        return;
+    }
 
-    // رسالة التسجيل
-    let message = `مرحبًا، هذا تسجيل جديد في الأكاديمية:%0Aالاسم: ${name}%0Aالهاتف: ${phone}%0Aالعمر: ${age}`;
+    let reader = new FileReader();
+    reader.onload = function(){
+        let photoData = reader.result; // بيانات الصورة بصيغة Base64
 
-    // فتح واتساب مع الرسالة
-    let whatsappURL = `https://wa.me/${adminNumber}?text=${message}`;
-    window.open(whatsappURL, "_blank");
+        // إنشاء رابط مؤقت للصورة (يمكن نسخه أو تحميله)
+        let blob = new Blob([photoData], { type: photoInput.files[0].type });
+        let photoURL = URL.createObjectURL(blob);
 
-    document.getElementById("successMessage").style.display = "block";
-    document.getElementById("registerForm").reset();
+        // رقم واتساب صاحب الأكاديمية
+        let adminNumber = "966566553536";
+
+        // رسالة التسجيل مع رابط الصورة
+        let message = `مرحبًا، هذا تسجيل جديد في الأكاديمية:%0Aالاسم: ${name}%0Aالهاتف: ${phone}%0Aالعمر: ${age}%0Aصورة المشارك: ${photoURL}`;
+
+        // فتح واتساب مع الرسالة
+        let whatsappURL = `https://wa.me/${adminNumber}?text=${message}`;
+        window.open(whatsappURL, "_blank");
+
+        document.getElementById("successMessage").style.display = "block";
+        document.getElementById("registerForm").reset();
+    };
+
+    reader.readAsDataURL(photoInput.files[0]);
 });
 </script>
 
