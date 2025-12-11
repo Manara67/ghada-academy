@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>أكاديمية الغادة للموهوبين لكرة القدم</title>
-    <link rel="shortcut icon" href="./pictures/location.jpg" type="image/x-icon">
+
+    <!-- وضع logo1 كأيقونة للموقع -->
+    <link rel="shortcut icon" href="./location.jpg" type="image/x-icon">
+
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
@@ -37,7 +40,19 @@
             position: relative;
         }
 
-        /* أيقونة أعلى يمين الصفحة */
+        /* شعار logo1 أعلى يسار الصفحة */
+        #logoLeft {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        /* أيقونة location أعلى يمين الصفحة */
         #logoIcon {
             position: absolute;
             top: 10px;
@@ -49,7 +64,11 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
-        header .logo { font-size: 2em; font-weight: bold; text-shadow: 2px 2px 8px #00000088; }
+        header .logo {
+            font-size: 2em;
+            font-weight: bold;
+            text-shadow: 2px 2px 8px #00000088;
+        }
 
         header nav a {
             color: white;
@@ -141,19 +160,27 @@
 <body>
 
 <header>
+
+    <!-- شعار logo1 أعلى يسار الصفحة -->
+    <img src="pictures/logo1.jpg" id="logoLeft" alt="logo">
+
     <div class="logo">⚽ أكاديمية الغادة للموهوبين لكرة القدم</div>
+
     <nav>
         <a href="#talents">أبرز المواهب</a>
         <a href="#board">مجلس الإدارة</a>
         <a href="#contact">تواصل معنا</a>
         <a href="register.html">التسجيل</a>
     </nav>
+
     <div>
         <input type="text" id="searchInput" placeholder="ابحث عن قسم...">
         <button id="searchBtn">بحث</button>
     </div>
-    <!-- أيقونة الشعار أعلى يمين الصفحة -->
+
+    <!-- شعار location أعلى يمين الصفحة -->
     <img src="pictures/location.jpg" alt="شعار الأكاديمية" id="logoIcon">
+
 </header>
 
 <section class="hero">
@@ -161,7 +188,7 @@
     <p>نحن أكاديمية الغادة للموهوبين لكرة القدم</p>
     <p class="address">مكة المكرمة - القنفذة</p>
 
-    <!-- الشعار في جسم الصفحة -->
+    <!-- الشعار داخل جسم الصفحة -->
     <img src="pictures/location.jpg" alt="شعار الأكاديمية" style="width:200px; border-radius:15px; margin-top:20px;">
 
     <div class="gallery" id="topPictures"></div>
@@ -187,8 +214,9 @@
     <h2>📞 تواصل معنا</h2>
     <div class="socials">
         <a href="https://snapchat.com/t/hbmcX3X8" class="social-link" target="_blank">سناب شات</a>
-        <a href="#" class="social-link">تويتر</a>
-        <a href="#" class="social-link">واتساب</a>
+        <a href="https://x.com/alghadafc?s=11&t=6mYjBrFpeJyOnMyMZSEtZQ" class="social-link" target="_blank">تويتر</a>
+        <a href="mailto:alghadafc@gmail.com" class="social-link">البريد الإلكتروني</a>
+        <a href="https://wa.me/966566553536" class="social-link" target="_blank">واتساب</a>
     </div>
 </section>
 
@@ -197,7 +225,6 @@
 </footer>
 
 <script>
-    // عرض الصور بشكل جذاب
     const pictures = ["location.jpg","logo1.jpg","logo2.jpg","team1.jpg","team2.jpg","event1.jpg","event2.jpg"];
     const topContainer = document.getElementById('topPictures');
     const bottomContainer = document.getElementById('bottomPictures');
@@ -218,7 +245,6 @@
         bottomContainer.appendChild(img);
     });
 
-    // البحث داخل الصفحة وخارجها
     const searchBtn = document.getElementById('searchBtn');
     const searchInput = document.getElementById('searchInput');
 
@@ -231,7 +257,7 @@
         } else if(query === 'تواصل معنا') {
             document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
         } else if(query === 'التسجيل') {
-            window.location.href = 'register.html'; // الانتقال لصفحة التسجيل
+            window.location.href = 'register.html';
         } else {
             alert('عذرًا، لم يتم العثور على هذا القسم.');
         }
