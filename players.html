@@ -126,7 +126,15 @@
         { file: "player3.jpg", name: "اللاعب الثالث" },
         { file: "player4.jpg", name: "اللاعب الرابع" },
         { file: "player5.jpg", name: "اللاعب الخامس" },
-        { file: "player6.jpg", name: "اللاعب السادس" }
+        { file: "player6.jpg", name: "اللاعب السادس" },
+
+        // ⭐ تمت إضافة 6 لاعبين جدد هنا
+        { file: "player7.jpg", name: "اللاعب السابع" },
+        { file: "player8.jpg", name: "اللاعب الثامن" },
+        { file: "player9.jpg", name: "اللاعب التاسع" },
+        { file: "player10.jpg", name: "اللاعب العاشر" },
+        { file: "player11.jpg", name: "اللاعب الحادي عشر" },
+        { file: "player12.jpg", name: "اللاعب الثاني عشر" }
     ];
 
     const gallery = document.getElementById("playersGallery");
@@ -136,7 +144,7 @@
         card.className = "player-card";
 
         const img = document.createElement("img");
-        img.src = `pictures_players/${player.file}`; // عدل حسب موقع المجلد
+        img.src = `pictures_players/${player.file}`;
         img.alt = player.name;
 
         const name = document.createElement("div");
