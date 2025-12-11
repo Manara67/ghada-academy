@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>التسجيل في الأكاديمية</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(-45deg, #9b30ff, #6a0dad, #d1b3ff, #f3e8ff);
+            background-size: 400% 400%;
+            animation: gradientBG 20s ease infinite;
+            color: #fff;
+            text-align: center;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        header {
+            background: linear-gradient(90deg, #6a0dad, #9b30ff);
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        header .logo {
+            font-size: 2em;
+            font-weight: bold;
+            text-shadow: 2px 2px 8px #00000088;
+        }
+
+        header nav a {
+            color: white;
+            margin-left: 15px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: color 0.3s;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+        }
+
+        header nav a:hover {
+            color: #ffe6ff;
+        }
+
+        .hero {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 12px #6a0dad;
+        }
+
+        .hero input, .hero button {
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 1.2em;
+            border: none;
+            margin-bottom: 15px;
+            outline: none;
+        }
+
+        .hero input {
+            border: 2px solid #d1b3ff;
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+            text-shadow: 1px 1px 3px #00000088;
+        }
+
+        .hero input::placeholder {
+            color: #eee;
+            opacity: 0.8;
+        }
+
+        .hero button {
+            background: linear-gradient(90deg, #9b30ff, #6a0dad);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-shadow: 1px 1px 5px #00000088;
+        }
+
+        .hero button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px #fff;
+        }
+
+        #successMessage {
+            display: none;
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #00ffcc;
+            text-shadow: 1px 1px 10px #6a0dad;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(90deg, #6a0dad, #9b30ff);
+            color: white;
+            font-weight: bold;
+            font-size: 1.2em;
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.2);
+            text-shadow: 1px 1px 5px #00000088;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">📝 التسجيل في الأكاديمية</div>
+    <nav>
+        <a href="index.html">الرئيسية</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>نموذج التسجيل</h1>
+
+    <form id="registerForm">
+        <input type="text" id="name" placeholder="الاسم الكامل" required>
+        <input type="tel" id="phone" placeholder="رقم الهاتف" required>
+        <input type="number" id="age" placeholder="العمر" required>
+        <input type="file" id="photo" accept="image/*" required>
+        <button type="submit">إرسال التسجيل</button>
+    </form>
+
+    <p id="successMessage">✅ تم التسجيل بنجاح، سيتم التواصل معكم قريبًا</p>
+</section>
+
+<footer>
+    أكاديمية الغادة للموهوبين لكرة القدم
+</footer>
+
+<script>
+document.getElementById("registerForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let age = document.getElementById("age").value;
+    let photoInput = document.getElementById("photo");
+
+    if(photoInput.files.length === 0){
+        alert("يرجى اختيار صورة!");
+        return;
+    }
+
+    let reader = new FileReader();
+    reader.onload = function(){
+        let photoData = reader.result; // بيانات الصورة بصيغة Base64
+
+        // إنشاء محتوى HTML
+        let htmlContent = `
+        <html>
+        <head>
+            <title>تسجيل ${name}</title>
+            <style>
+                body { font-family: 'Cairo', sans-serif; text-align: center; background: linear-gradient(135deg,#9b30ff,#6a0dad); color: white; padding: 30px; }
+                h1 { text-shadow: 2px 2px 8px #000; }
+                img { max-width: 300px; border: 5px solid #fff; border-radius: 15px; margin-top: 20px; }
+            </style>
+        </head>
+        <body>
+            <h1>بيانات التسجيل</h1>
+            <p><strong>الاسم:</strong> ${name}</p>
+            <p><strong>الهاتف:</strong> ${phone}</p>
+            <p><strong>العمر:</strong> ${age}</p>
+            <p><strong>الصورة المرفوعة:</strong></p>
+            <img src="${photoData}" alt="صورة المشارك">
+        </body>
+        </html>
+        `;
+
+        let file = new Blob([htmlContent], {type: "text/html"});
+        let link = document.createElement("a");
+        let date = new Date().toISOString().split("T")[0];
+        link.href = URL.createObjectURL(file);
+        link.download = "تسجيل_" + name + "_" + date + ".html";
+        link.click();
+
+        document.getElementById("successMessage").style.display = "block";
+        document.getElementById("registerForm").reset();
+    };
+
+    reader.readAsDataURL(photoInput.files[0]);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>أكاديمية الغادة للموهوبين لكرة القدم</title>
+    <link rel="shortcut icon" href="./pictures/location.jpg" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            text-align: center;
+            animation: gradientBG 20s ease infinite;
+            background: linear-gradient(-45deg, #9b30ff, #6a0dad, #d1b3ff, #f3e8ff);
+            background-size: 400% 400%;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        header {
+            background: linear-gradient(90deg, #6a0dad, #9b30ff);
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        /* أيقونة أعلى يمين الصفحة */
+        #logoIcon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        header .logo { font-size: 2em; font-weight: bold; text-shadow: 2px 2px 8px #00000088; }
+
+        header nav a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover { color: #ffe6ff; }
+
+        #searchInput { padding:8px 12px; border-radius:8px; border:none; font-size:1em; }
+        #searchBtn { padding:8px 12px; border-radius:8px; border:none; background:#6a0dad; color:white; font-weight:bold; cursor:pointer; margin-left:5px; }
+
+        section { padding: 40px 20px; display: flex; flex-direction: column; align-items: center; }
+
+        h1, h2, p { text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        h1 { font-size: 3em; margin-bottom: 20px; }
+        h2 { font-size: 2.5em; margin-bottom: 15px; }
+        p { font-size: 1.5em; line-height: 1.6; max-width: 700px; }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            width: 90%;
+            margin: 30px auto;
+        }
+
+        .gallery img {
+            width: 100%;
+            border-radius: 20px;
+            border: 3px solid #fff;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+            transition: transform 0.4s, box-shadow 0.4s, rotate 0.4s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1) rotate(-2deg);
+            box-shadow: 0 15px 35px rgba(155,48,255,0.8);
+            cursor: pointer;
+        }
+
+        .btn, .btn-link {
+            display: inline-block;
+            padding: 12px 25px;
+            margin-top: 15px;
+            background: linear-gradient(90deg, #9b30ff, #6a0dad);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 1.3em;
+            transition: all 0.3s ease;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+        }
+
+        .btn:hover, .btn-link:hover {
+            background: linear-gradient(90deg, #6a0dad, #9b30ff);
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: linear-gradient(90deg, #6a0dad, #9b30ff);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            font-weight: bold;
+            font-size: 1.3em;
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.2);
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+        }
+
+        .socials { margin-top: 20px; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+        .socials .social-link {
+            font-weight: bold;
+            font-size: 1.5em;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid #fff;
+            border-radius: 12px;
+            transition: background 0.3s, color 0.3s, transform 0.3s;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+        }
+        .socials .social-link:hover { background-color: #fff; color: #9b30ff; transform: scale(1.1); }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">⚽ أكاديمية الغادة للموهوبين لكرة القدم</div>
+    <nav>
+        <a href="#talents">أبرز المواهب</a>
+        <a href="#board">مجلس الإدارة</a>
+        <a href="#contact">تواصل معنا</a>
+        <a href="register.html">التسجيل</a>
+    </nav>
+    <div>
+        <input type="text" id="searchInput" placeholder="ابحث عن قسم...">
+        <button id="searchBtn">بحث</button>
+    </div>
+    <!-- أيقونة الشعار أعلى يمين الصفحة -->
+    <img src="pictures/location.jpg" alt="شعار الأكاديمية" id="logoIcon">
+</header>
+
+<section class="hero">
+    <h1>من نحن</h1>
+    <p>نحن أكاديمية الغادة للموهوبين لكرة القدم</p>
+    <p class="address">مكة المكرمة - القنفذة</p>
+
+    <!-- الشعار في جسم الصفحة -->
+    <img src="pictures/location.jpg" alt="شعار الأكاديمية" style="width:200px; border-radius:15px; margin-top:20px;">
+
+    <div class="gallery" id="topPictures"></div>
+    <div class="gallery" id="bottomPictures"></div>
+</section>
+
+<section id="talents">
+    <h2>⭐ أبرز المواهب</h2>
+    <p>هنا ستجد جميع الفيديوهات والصور الخاصة باللاعبين والمواهب</p>
+    <div style="display:flex; gap:20px; flex-wrap:wrap; justify-content:center; margin-top:20px;">
+        <a class="btn-link" href="videos.html">مشاهدة الفيديو</a>
+        <a class="btn-link" href="players.html">مشاهدة صور اللاعبين</a>
+    </div>
+</section>
+
+<section id="board">
+    <h2>🏆 مجلس الإدارة</h2>
+    <p>مرحبًا بكم في صفحة مجلس الإدارة.</p>
+    <a href="./pages/board.html" class="btn-link">انتقل إلى مجلس الإدارة</a>
+</section>
+
+<section id="contact">
+    <h2>📞 تواصل معنا</h2>
+    <div class="socials">
+        <a href="https://snapchat.com/t/hbmcX3X8" class="social-link" target="_blank">سناب شات</a>
+        <a href="#" class="social-link">تويتر</a>
+        <a href="#" class="social-link">واتساب</a>
+    </div>
+</section>
+
+<footer>
+    جميع الحقوق محفوظة © أكاديمية الغادة للموهوبين لكرة القدم
+</footer>
+
+<script>
+    // عرض الصور بشكل جذاب
+    const pictures = ["location.jpg","logo1.jpg","logo2.jpg","team1.jpg","team2.jpg","event1.jpg","event2.jpg"];
+    const topContainer = document.getElementById('topPictures');
+    const bottomContainer = document.getElementById('bottomPictures');
+
+    pictures.slice(0,3).forEach(pic => {
+        const img = document.createElement('img');
+        img.src = `pictures/${pic}`;
+        img.alt = pic;
+        img.style.width = "250px";
+        topContainer.appendChild(img);
+    });
+
+    pictures.slice(3).forEach(pic => {
+        const img = document.createElement('img');
+        img.src = `pictures/${pic}`;
+        img.alt = pic;
+        img.style.width = "250px";
+        bottomContainer.appendChild(img);
+    });
+
+    // البحث داخل الصفحة وخارجها
+    const searchBtn = document.getElementById('searchBtn');
+    const searchInput = document.getElementById('searchInput');
+
+    searchBtn.addEventListener('click', () => {
+        const query = searchInput.value.trim().toLowerCase();
+        if(query === 'مجلس الإدارة' || query === 'مجلس الادارة') {
+            document.getElementById('board').scrollIntoView({ behavior: 'smooth' });
+        } else if(query === 'أبرز المواهب' || query === 'المواهب') {
+            document.getElementById('talents').scrollIntoView({ behavior: 'smooth' });
+        } else if(query === 'تواصل معنا') {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        } else if(query === 'التسجيل') {
+            window.location.href = 'register.html'; // الانتقال لصفحة التسجيل
+        } else {
+            alert('عذرًا، لم يتم العثور على هذا القسم.');
+        }
+    });
+
+    searchInput.addEventListener('keyup', (e) => {
+        if(e.key === 'Enter') searchBtn.click();
+    });
+</script>
+
+</body>
+</html>

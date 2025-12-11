@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>أبرز لقطات المواهب</title>
+
+    <!-- خط Cairo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(-45deg, #6a0dad, #9b30ff, #d1b3ff, #f3e8ff);
+            background-size: 400% 400%;
+            animation: gradientBG 20s ease infinite;
+            color: white;
+            text-align: center;
+        }
+
+        @keyframes gradientBG {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+
+        header {
+            background: linear-gradient(90deg, #6a0dad, #9b30ff);
+            padding: 25px;
+            font-size: 1.8em;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,.4);
+        }
+
+        nav a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #ffe6ff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            padding: 50px 20px;
+        }
+
+        h1 {
+            font-size: 2.4em;
+            text-shadow: 2px 2px 12px #000;
+        }
+
+        .info-box {
+            background: rgba(0,0,0,0.25);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 30px auto;
+            max-width: 750px;
+            box-shadow: 0 10px 25px rgba(0,0,0,.4);
+        }
+
+        .info-box p {
+            font-size: 1.3em;
+            line-height: 1.9;
+            margin: 10px 0;
+            text-shadow: 1px 1px 8px #000;
+        }
+
+        .highlight {
+            color: #ffd6ff;
+            font-weight: bold;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        video {
+            width: 100%;
+            height: 200px;
+            border-radius: 15px;
+            border: 3px solid white;
+            background: black;
+            box-shadow: 0 8px 20px rgba(155,48,255,.5);
+            transition: 0.3s;
+        }
+
+        video:hover {
+            transform: scale(1.06);
+            box-shadow: 0 15px 35px rgba(155,48,255,.8);
+        }
+
+        footer {
+            background: linear-gradient(90deg, #6a0dad, #9b30ff);
+            padding: 20px;
+            margin-top: 50px;
+            font-weight: bold;
+            box-shadow: 0 -4px 12px rgba(0,0,0,.3);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    🎬 أبرز لقطات المواهب<br>
+    <nav>
+        <a href="index.html">العودة للرئيسية</a>
+    </nav>
+</header>
+
+<section>
+    <h1>⭐ كل فيديوهاتنا لكم حصريًا</h1>
+
+    <div class="info-box">
+        <p>يمكنك مشاهدة أهم لقطات المواهب من <span class="highlight">أكاديمية الغادة</span>.</p>
+        <p>✅ جميع الفيديوهات <span class="highlight">حصرية</span> وتُعرض لكم بشكل مباشر.</p>
+        <p>🔥 استمتع بعرض مهارات اللاعبين والتدريب الاحترافي.</p>
+    </div>
+
+    <div class="gallery" id="videoGallery"></div>
+</section>
+
+<footer>
+    أكاديمية الغادة للموهوبين لكرة القدم
+</footer>
+
+<script>
+    const videos = [
+        "video1.mp4",
+        "video2.mp4",
+        "video3.mp4",
+        "video4.mp4"
+
+    ];
+
+    const gallery = document.getElementById("videoGallery");
+
+    videos.forEach(file => {
+        const video = document.createElement("video");
+        video.controls = true;
+        video.src = `video/${file}`;
+        gallery.appendChild(video);
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>أبرز لاعبي الأكاديمية</title>
+    <link rel="shortcut icon" href="./location.jpg" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(-45deg, #6a0dad, #9b30ff, #d1b3ff, #f3e8ff);
+            background-size: 400% 400%;
+            animation: gradientBG 20s ease infinite;
+            color: white;
+            text-align: center;
+        }
+
+        @keyframes gradientBG {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+
+        header {
+            background: linear-gradient(90deg, #6a0dad, #9b30ff);
+            padding: 25px;
+            font-size: 1.8em;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,.4);
+        }
+
+        nav a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #ffe6ff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-right: 20px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            font-size: 2.4em;
+            text-shadow: 2px 2px 12px #000;
+            margin-top: 20px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 50px auto;
+            max-width: 1200px;
+        }
+
+        .player-card {
+            background: rgba(0,0,0,0.25);
+            border-radius: 20px;
+            padding: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .player-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(155,48,255,.8);
+        }
+
+        .player-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 3px solid #fff;
+            margin-bottom: 15px;
+        }
+
+        .player-name {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin: 40px 0;
+            padding: 12px 25px;
+            background: linear-gradient(90deg, #9b30ff, #6a0dad);
+            color: white;
+            text-decoration: none;
+            font-size: 1.4em;
+            border-radius: 12px;
+            transition: transform 0.3s;
+        }
+
+        .back-btn:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    ⚽ أكاديمية الغادة للموهوبين لكرة القدم
+    <nav>
+        <a href="index.html">العودة للرئيسية</a>
+    </nav>
+</header>
+
+<h1>⭐ أبرز لاعبي الأكاديمية</h1>
+
+<div class="gallery" id="playersGallery"></div>
+
+<a href="index.html" class="back-btn">العودة للرئيسية</a>
+
+<script>
+    const players = [
+        { file: "player1.jpg", name: "اللاعب الأول"},
+        { file: "player2.jpg", name: "اللاعب الثاني"},
+        { file: "player3.jpg", name: "اللاعب الثالث" },
+        { file: "player4.jpg", name: "اللاعب الرابع" },
+        { file: "player5.jpg", name: "اللاعب الخامس" },
+        { file: "player6.jpg", name: "اللاعب السادس" }
+    ];
+
+    const gallery = document.getElementById("playersGallery");
+
+    players.forEach(player => {
+        const card = document.createElement("div");
+        card.className = "player-card";
+
+        const img = document.createElement("img");
+        img.src = `pictures_players/${player.file}`; // عدل حسب موقع المجلد
+        img.alt = player.name;
+
+        const name = document.createElement("div");
+        name.className = "player-name";
+        name.textContent = player.name;
+
+        card.appendChild(img);
+        card.appendChild(name);
+
+        gallery.appendChild(card);
+    });
+</script>
+
+</body>
+</html>
